@@ -1,7 +1,5 @@
 import Head from "next/head";
-import { IM_SiteLogo } from "~/assets/images";
-import TextInputView from "~/ui/components/input/views/TextInputView";
-import RoleListItemView from "~/ui/components/list-item/views/RoleListItemView";
+import IndexTemplate from "~/ui/templates/index-template/IndexTemplate";
 
 export default function IndexPage() {
   return (
@@ -14,6 +12,7 @@ export default function IndexPage() {
         />
         <link rel="icon" href="/favicon.png" />
       </Head>
+      <IndexTemplate />
     </>
   );
 }

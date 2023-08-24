@@ -3,21 +3,13 @@ import {
   RoleListItemViewProps,
 } from "../list-item/list-item.types";
 
-export type ListGroupHookParams<ItemType = ListItemProps> = {
-  onSelect: (payload: ItemType) => void;
-};
-
-export type ListGroupHookReturnType<ItemType = ListItemProps> = {
-  onItemSelect: (payload: ItemType) => void;
-};
-
-export type ListGroupProps = ListGroupHookReturnType & {
+export type ListGroupProps = {
+  onItemSelect: (payload: ListItemProps) => void;
   items: ListItemProps[];
 };
 
-export type RoleListGroupViewProps = ListGroupHookReturnType<
-  RoleListItemViewProps["item"]
-> & {
+export type RoleListGroupViewProps = {
+  onItemSelect: (payload: RoleListItemViewProps["item"]) => void;
   items: RoleListItemViewProps["item"][];
-  selected: ListItemProps["id"];
+  selected: ListItemProps["id"] | null;
 };
