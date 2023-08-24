@@ -1,7 +1,7 @@
 import type { FormEvent } from "react";
 import { useState } from "react";
 import useFormData from "./useFormData";
-import { ZodSchema, ZodType } from "zod";
+import { ZodObject, ZodSchema, ZodType } from "zod";
 
 export type ZRawShapeOf<T> = {
   [property in keyof T]: ZodType<T[property]>;
@@ -9,7 +9,7 @@ export type ZRawShapeOf<T> = {
 
 export interface UseFormParams<T> {
   initialFormData: T;
-  validationSchema?: ZodSchema<ZRawShapeOf<T>>;
+  validationSchema?: ZodObject<ZRawShapeOf<T>>;
   onSubmit?: (formData: T) => Promise<void>;
 }
 

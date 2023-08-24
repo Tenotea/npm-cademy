@@ -1,6 +1,7 @@
 import type { ChangeEvent } from "react";
 import { useEffect, useState } from "react";
 import { InputHookReturnType, TextInputProps } from "../input.types";
+import { ZodError } from "zod";
 // import { TextInputProps } from "./TextInput.types";
 // import useAutoAnimate from "../../../utils/hooks/useA";
 
@@ -24,14 +25,14 @@ export function useInput<T extends TextInputProps>(
     validateTextField();
   }, [props.validationTrigger]);
 
-  function validateTextField() {
+  async function validateTextField() {
     try {
       if (props.validation) {
         setValidationError(null);
-        props.validation.parse(props.value);
+        await props.validation.parseAsync(props.value);
       }
     } catch (error: any) {
-      setValidationError((error as Error).message);
+      setValidationError(error.issues[0]?.message || error.message);
     }
   }
 
@@ -46,6 +47,5 @@ export function useInput<T extends TextInputProps>(
   return {
     validationError,
     handleChange,
-    // parentRef,
   };
 }

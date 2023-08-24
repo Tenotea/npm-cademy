@@ -1,5 +1,6 @@
 import { ChangeEvent, InputHTMLAttributes } from "react";
 import { ZodSchema } from "zod";
+import { ListItemProps } from "../list-item/list-item.types";
 
 export type InputChangePayload = {
   field: string;
@@ -19,4 +20,8 @@ export type TextInputProps = Omit<
   validationTrigger?: string | null;
   validation?: ZodSchema;
   onChange?: (payload: InputChangePayload) => void;
+};
+
+export type SelectInputProps = TextInputProps & {
+  options: ListItemProps[];
 };
