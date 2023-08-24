@@ -1,4 +1,5 @@
 import { type Config } from "tailwindcss";
+import d from "tailwindcss/defaultTheme";
 
 export default {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
@@ -7,6 +8,9 @@ export default {
       colors: {
         "app-teal": "#357B73",
         "label-gray": "#616161",
+      },
+      fontFamily: {
+        sans: ["var(--font-gilroy)", ...d.fontFamily.sans],
       },
     },
   },
