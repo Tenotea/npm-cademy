@@ -5,9 +5,6 @@ const meta = {
   title: "Components/Buttons/BaseButtonView",
   component: BaseButtonView,
   tags: ["autodocs"],
-  parameters: {
-    layout: "fullscreen",
-  },
 } satisfies Meta<typeof BaseButtonView>;
 
 type Story = StoryObj<typeof meta>;
@@ -27,7 +24,7 @@ export const Fit: Story = {
 
 export const Disabled: Story = {
   args: {
-    children: "Click Me!",
+    children: "Cannot Click Me",
     disabled: true,
   },
 };

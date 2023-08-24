@@ -7,6 +7,7 @@ const config: StorybookConfig = {
     "@storybook/addon-essentials",
     "@storybook/addon-onboarding",
     "@storybook/addon-interactions",
+    "storybook-addon-paddings",
   ],
   framework: {
     name: "@storybook/nextjs",
@@ -17,6 +18,7 @@ const config: StorybookConfig = {
   },
   staticDirs: [
     { from: "../src/assets/fonts/gilroy", to: "src/assets/fonts/gilroy" },
+    "../src/assets/",
   ],
 };
 export default config;
