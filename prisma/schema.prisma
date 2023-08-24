@@ -6,12 +6,36 @@ generator client {
 }
 
 datasource db {
-    provider = "sqlite"
+    provider = "postgresql"
     url      = env("DATABASE_URL")
 }
 
-model Example {
-    id        String   @id @default(cuid())
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+enum SupportedTitle {
+    Mr
+    Mrs
+    Miss
+    Dr
+    Prof
+}
+
+model Teacher {
+    id                   String         @id @default(uuid())
+    firstName            String
+    lastName             String
+    identificationNumber Int            @unique
+    title                SupportedTitle
+    dateOfBirth          DateTime
+    teacherNumber        Int
+    salary               Int?
+    createdAt            DateTime       @default(now())
+}
+
+model Student {
+    id                   String   @id @default(uuid())
+    firstName            String
+    lastName             String
+    identificationNumber Int      @unique
+    dateOfBirth          DateTime
+    studentNumber        Int
+    createdAt            DateTime @default(now())
 }
