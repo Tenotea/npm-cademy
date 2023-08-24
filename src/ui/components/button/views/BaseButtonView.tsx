@@ -1,7 +1,7 @@
 import React from "react";
-import { ButtonProps } from "../button.types";
+import { BaseButtonViewProps } from "../button.types";
 
-export default function BaseButtonView(props: ButtonProps) {
+export default function BaseButtonView(props: BaseButtonViewProps) {
   const { fit, ...restProps } = props;
 
   return (
