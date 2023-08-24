@@ -6,6 +6,7 @@ export default {
     extend: {
       colors: {
         "app-teal": "#357B73",
+        "label-gray": "#616161",
       },
     },
   },
