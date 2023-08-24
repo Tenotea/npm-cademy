@@ -1,6 +1,7 @@
 import React from "react";
 import { TextInputProps } from "../input.types";
 import { useInput } from "../hooks/useInput";
+import InputFeedbackView from "../../feedback/views/InputFeedbackView";
 
 export default function TextInputView(props: TextInputProps) {
   const { label, onChange, ...restProps } = props;
@@ -21,9 +22,7 @@ export default function TextInputView(props: TextInputProps) {
       </label>
 
       {validationError && (
-        <span className="block px-2 py-1 text-xs font-semibold text-red-500">
-          {validationError}
-        </span>
+        <InputFeedbackView>{validationError}</InputFeedbackView>
       )}
     </div>
   );
