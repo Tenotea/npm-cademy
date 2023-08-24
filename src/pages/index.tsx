@@ -9,7 +9,7 @@ export default function IndexPage() {
           name="description"
           content="Designed and Implemented by Tenotea"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
     </>
   );
