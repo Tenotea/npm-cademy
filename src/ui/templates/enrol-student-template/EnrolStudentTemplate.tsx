@@ -1,22 +1,20 @@
 import React from "react";
 import OnboardingLayout from "~/ui/layouts/onboarding-layout/OnboardingLayout";
-import useEnrolTeacherTemplate from "./useEnrolTeacherTemplate";
+import useEnrolStudentTemplate from "./useEnrolStudentTemplate";
 import TextInputView from "~/ui/components/input/views/TextInputView";
 import BaseButtonView from "~/ui/components/button/views/BaseButtonView";
 import { Icon } from "@iconify/react";
-import SelectInputView from "~/ui/components/input/views/SelectInputView";
-import { SupportedTitle } from "@prisma/client";
 
-export default function EnrolTeacherTemplate() {
+export default function EnrolStudentTemplate() {
   const {
     formData,
     handleChange,
     handleSubmit,
     validationError,
     validationSchema,
-  } = useEnrolTeacherTemplate();
+  } = useEnrolStudentTemplate();
   return (
-    <OnboardingLayout title="Teacher Information">
+    <OnboardingLayout title="Student Information">
       <form onSubmit={handleSubmit}>
         <div className="mb-10 grid gap-7">
           <TextInputView
@@ -39,26 +37,11 @@ export default function EnrolTeacherTemplate() {
               autoComplete="off"
               onChange={handleChange}
             />
-
             <TextInputView
               label="Surname"
               name="lastName"
               value={formData.lastName}
               validation={validationSchema?.shape.lastName}
-              validationTrigger={validationError}
-              autoComplete="off"
-              onChange={handleChange}
-            />
-
-            <SelectInputView
-              options={Object.keys(SupportedTitle).map((k) => ({
-                id: k,
-                name: k,
-              }))}
-              label="Title"
-              name="title"
-              value={formData.title}
-              validation={validationSchema?.shape.title}
               validationTrigger={validationError}
               autoComplete="off"
               onChange={handleChange}
@@ -76,27 +59,16 @@ export default function EnrolTeacherTemplate() {
             />
 
             <TextInputView
-              label="Teacher No."
-              name="teacherNumber"
-              value={formData.teacherNumber}
-              validation={validationSchema?.shape.teacherNumber}
-              validationTrigger={validationError}
-              autoComplete="off"
-              onChange={handleChange}
-            />
-
-            <TextInputView
-              label="Salary (US Dollars)"
-              name="salary"
-              value={formData.salary}
-              validation={validationSchema?.shape.salary}
+              label="Student No."
+              name="studentNumber"
+              value={formData.studentNumber}
+              validation={validationSchema?.shape.studentNumber}
               validationTrigger={validationError}
               autoComplete="off"
               onChange={handleChange}
             />
           </div>
         </div>
-
         <BaseButtonView>
           Register <Icon icon={"bi:arrow-right"} />
         </BaseButtonView>

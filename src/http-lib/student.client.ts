@@ -16,7 +16,7 @@ class StudentClient extends HttpClient {
   }
 }
 
-const studentClient = new StudentClient();
+export const studentClient = new StudentClient();
 
 export namespace StudentClient {
   export type CreateNewStudentDTO = {
