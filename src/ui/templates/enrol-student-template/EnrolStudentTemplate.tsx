@@ -28,7 +28,7 @@ export default function EnrolStudentTemplate() {
             validationTrigger={validationError}
           />
 
-          <div className="grid grid-cols-2 gap-x-4 gap-y-7">
+          <div className="grid gap-x-4 gap-y-7 sm:grid-cols-2">
             <TextInputView
               label="Firstname"
               name="firstName"

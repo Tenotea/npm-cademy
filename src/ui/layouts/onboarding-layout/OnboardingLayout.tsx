@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function OnboardingLayout(props: OnboardingLayoutProps) {
   return (
-    <div className="mx-auto max-w-[772px] pt-24">
+    <div className="mx-auto max-w-[772px] px-5 pb-8 pt-14 sm:pt-24">
       <Link className="block max-w-max" href={"/"}>
         <Image src={IM_SiteLogo} alt="npm cademy" />
       </Link>

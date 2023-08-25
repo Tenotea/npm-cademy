@@ -1,10 +1,10 @@
 import React from "react";
-import { RoleListGroupViewProps } from "../list-group.types";
+import { type RoleListGroupViewProps } from "../list-group.types";
 import RoleListItemView from "../../list-item/views/RoleListItemView";
 
 export default function RoleListGroupView(props: RoleListGroupViewProps) {
   return (
-    <div className="grid grid-cols-2 gap-7">
+    <div className="grid gap-7 sm:grid-cols-2">
       {props.items.map((item) => (
         <RoleListItemView
           item={item}
