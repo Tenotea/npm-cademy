@@ -5,13 +5,16 @@ import Image from "next/image";
 import React from "react";
 import { IM_SiteLogo } from "~/assets/images";
 import { type RecordsLayoutProps } from "./RecordsLayout.types";
+import Link from "next/link";
 
 export default function RecordsLayout(props: RecordsLayoutProps) {
   return (
     <main>
       <header className="border-b border-app-gray-accent-5">
         <div className="mx-auto flex w-11/12 max-w-screen-2xl items-center gap-1.5">
-          <Image src={IM_SiteLogo} alt="npm cademy" />
+          <Link href={"/"} className="block max-w-max">
+            <Image src={IM_SiteLogo} alt="npm cademy" />
+          </Link>
           <h2 className="mt-2.5 text-lg font-bold"> / {props.title} </h2>
         </div>
       </header>
