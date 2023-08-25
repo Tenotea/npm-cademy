@@ -1,4 +1,4 @@
-import { StudentClient } from "~/http-lib/student.client";
+import { type StudentClient } from "~/http-lib/student.client";
 import { Database } from "../db";
 
 export class StudentController {
@@ -9,8 +9,8 @@ export class StudentController {
           dateOfBirth: new Date(dto.dateOfBirth),
           firstName: dto.firstName,
           lastName: dto.lastName,
-          identificationNumber: Number(dto.nin),
-          studentNumber: Number(dto.studentNumber),
+          identificationNumber: dto.nin,
+          studentNumber: "SNN " + dto.studentNumber,
         },
       });
 

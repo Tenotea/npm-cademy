@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { StudentClient, studentClient } from "~/http-lib/student.client";
+import { type StudentClient, studentClient } from "~/http-lib/student.client";
 import { useForm } from "~/utils/hooks/useForm";
 import { CreateNewStudentDTOSchema } from "~/utils/validators/create-student.validator";
 

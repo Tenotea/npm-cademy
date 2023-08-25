@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import { z } from "zod";
 import { teacherClient } from "~/http-lib/teacher.client";
 import { useForm } from "~/utils/hooks/useForm";
 import { CreateNewTeacherDTOSchema } from "~/utils/validators/create-teacher.validator";

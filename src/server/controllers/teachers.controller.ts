@@ -1,6 +1,6 @@
 import { Database } from "../db";
-import { TeacherClient } from "~/http-lib/teacher.client";
-import { SupportedTitle } from "@prisma/client";
+import { type TeacherClient } from "~/http-lib/teacher.client";
+import { type SupportedTitle } from "@prisma/client";
 
 export class TeachersController {
   static async CreateNewTeacher(dto: TeacherClient.CreateNewTeacherDTO) {
@@ -10,10 +10,10 @@ export class TeachersController {
           dateOfBirth: new Date(dto.dateOfBirth),
           firstName: dto.firstName,
           lastName: dto.lastName,
-          identificationNumber: Number(dto.nin),
-          teacherNumber: Number(dto.teacherNumber),
+          identificationNumber: dto.nin,
+          teacherNumber: "TNN " + dto.teacherNumber,
           title: dto.title as SupportedTitle,
-          salary: dto.salary ? Number(dto.salary) : undefined,
+          salary: dto.salary ? "$ " + dto.salary : undefined,
         },
       });
 

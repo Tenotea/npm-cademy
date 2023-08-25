@@ -1,4 +1,7 @@
-import { NextApiRequest, NextApiResponse } from "next";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+import { type NextApiRequest, type NextApiResponse } from "next";
 import { TeachersController } from "~/server/controllers/teachers.controller";
 import { CreateNewTeacherDTOSchema } from "~/utils/validators/create-teacher.validator";
 

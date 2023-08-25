@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { ZRawShapeOf } from "../hooks/useForm";
-import { StudentClient } from "~/http-lib/student.client";
+import { type ZRawShapeOf } from "../hooks/useForm";
+import { type StudentClient } from "~/http-lib/student.client";
 
 export const CreateNewStudentDTOSchema = z.object<
   ZRawShapeOf<StudentClient.CreateNewStudentDTO>
@@ -18,9 +18,10 @@ export const CreateNewStudentDTOSchema = z.object<
     (dob) => {
       const yearOfBirth = new Date(dob).getFullYear();
       const currentYear = new Date().getFullYear();
-      return currentYear - yearOfBirth >= 21;
+      const age = currentYear - yearOfBirth;
+      return age > 8 && age <= 21;
     },
-    { message: "You must be 21 yrs or older" }
+    { message: "You must be between ages 8 and 21 yrs" }
   ),
   firstName: z
     .string({ required_error: "This field is required" })

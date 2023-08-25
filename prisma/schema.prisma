@@ -22,11 +22,11 @@ model Teacher {
     id                   String         @id @default(uuid())
     firstName            String
     lastName             String
-    identificationNumber Int            @unique
+    identificationNumber String         @unique
     title                SupportedTitle
     dateOfBirth          DateTime
-    teacherNumber        Int
-    salary               Int?
+    teacherNumber        String
+    salary               String?
     createdAt            DateTime       @default(now())
 }
 
@@ -34,8 +34,8 @@ model Student {
     id                   String   @id @default(uuid())
     firstName            String
     lastName             String
-    identificationNumber Int      @unique
+    identificationNumber String   @unique
     dateOfBirth          DateTime
-    studentNumber        Int
+    studentNumber        String
     createdAt            DateTime @default(now())
 }

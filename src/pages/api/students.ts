@@ -1,4 +1,7 @@
-import { NextApiRequest, NextApiResponse } from "next";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { type NextApiRequest, type NextApiResponse } from "next";
 import { StudentController } from "~/server/controllers/students.controller";
 import { CreateNewStudentDTOSchema } from "~/utils/validators/create-student.validator";
 
@@ -20,7 +23,7 @@ export default async function handler(
       } catch (error: any) {
         res.status(400).json({
           statusCode: 200,
-          message: error.issues[0]?.message || error.message,
+          message: error.issues?.[0]?.message || error.message,
         });
       }
       break;

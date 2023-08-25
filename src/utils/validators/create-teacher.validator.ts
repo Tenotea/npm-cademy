@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { ZRawShapeOf } from "../hooks/useForm";
-import { TeacherClient } from "~/http-lib/teacher.client";
+import { type ZRawShapeOf } from "../hooks/useForm";
+import { type TeacherClient } from "~/http-lib/teacher.client";
 
 export const CreateNewTeacherDTOSchema = z.object<
   ZRawShapeOf<TeacherClient.CreateNewTeacherDTO>

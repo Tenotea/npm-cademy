@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import React from "react";
 import OnboardingLayout from "~/ui/layouts/onboarding-layout/OnboardingLayout";
 import useEnrolTeacherTemplate from "./useEnrolTeacherTemplate";

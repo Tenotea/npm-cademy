@@ -18,6 +18,7 @@ class TeacherClient extends HttpClient {
 
 export const teacherClient = new TeacherClient();
 
+// eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace TeacherClient {
   export type CreateNewTeacherDTO = {
     nin: string;
