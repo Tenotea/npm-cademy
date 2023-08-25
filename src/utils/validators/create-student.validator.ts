@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { type ZRawShapeOf } from "../hooks/useForm";
 import { type StudentClient } from "~/http-lib/student.client";
+import { getAgeFromDate } from "../utils.index";
 
 export const CreateNewStudentDTOSchema = z.object<
   ZRawShapeOf<StudentClient.CreateNewStudentDTO>
@@ -16,9 +17,7 @@ export const CreateNewStudentDTOSchema = z.object<
     }),
   dateOfBirth: z.string().refine(
     (dob) => {
-      const yearOfBirth = new Date(dob).getFullYear();
-      const currentYear = new Date().getFullYear();
-      const age = currentYear - yearOfBirth;
+      const age = getAgeFromDate(dob);
       return age > 8 && age <= 21;
     },
     { message: "You must be between ages 8 and 21 yrs" }

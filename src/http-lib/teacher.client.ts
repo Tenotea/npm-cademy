@@ -1,3 +1,4 @@
+import { type Teacher } from "@prisma/client";
 import HttpClient from "./index";
 
 class TeacherClient extends HttpClient {
@@ -12,6 +13,13 @@ class TeacherClient extends HttpClient {
       method: "post",
       path: "/",
       body: dto,
+    });
+  }
+
+  async GetTeachers() {
+    return await this.SendRequest<Teacher[]>({
+      method: "get",
+      path: "/",
     });
   }
 }

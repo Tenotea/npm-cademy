@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios, {
-  AxiosInstance,
-  AxiosResponse,
-  CreateAxiosDefaults,
+  type AxiosInstance,
+  type AxiosResponse,
+  type CreateAxiosDefaults,
 } from "axios";
 
 type HttpServiceConstructorParams = CreateAxiosDefaults<any>;
@@ -17,11 +19,18 @@ type HttpServiceParams<DTO, DQO> = {
   };
 };
 export type HttpServiceResolverError = {
-  error: string;
+  message: string;
+  statusCode: number;
+};
+
+export type HttpServiceResolverSuccess<T> = {
+  message: string;
+  statusCode: number;
+  data: T;
 };
 
 type HttpServiceResolverDTO<T> = Promise<{
-  data: T | null;
+  data: HttpServiceResolverSuccess<T> | null;
   error: HttpServiceResolverError | null;
 }>;
 
@@ -34,7 +43,7 @@ export default class HttpService {
   private async resolver<T>(
     fn: Promise<AxiosResponse>
   ): HttpServiceResolverDTO<T> {
-    let data: T | null = null;
+    let data: HttpServiceResolverSuccess<T> | null = null;
     let error: null | HttpServiceResolverError = null;
     try {
       const { data: apiResponse } = await fn;
@@ -56,7 +65,7 @@ export default class HttpService {
     return this.resolver<DAO>(
       this.axiosInstance[params.method](
         params.path,
-        params.body ? params.body : ({ params: params.query || {} } as any),
+        params.body ? params.body : ({ params: params.query ?? {} } as any),
         params.body && params.query ? { params: params.query } : {}
       )
     );

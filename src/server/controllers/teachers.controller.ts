@@ -13,7 +13,9 @@ export class TeachersController {
           identificationNumber: dto.nin,
           teacherNumber: "TNN " + dto.teacherNumber,
           title: dto.title as SupportedTitle,
-          salary: dto.salary ? "$ " + dto.salary : undefined,
+          salary: dto.salary
+            ? "$ " + Number(dto.salary).toLocaleString()
+            : undefined,
         },
       });
 
