@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-namespace */
+import { Student } from "@prisma/client";
 import HttpClient from "./index";
 
 class StudentClient extends HttpClient {
@@ -13,6 +14,13 @@ class StudentClient extends HttpClient {
       method: "post",
       path: "/",
       body: dto,
+    });
+  }
+
+  async GetStudents() {
+    return await this.SendRequest<Student[]>({
+      method: "get",
+      path: "/",
     });
   }
 }

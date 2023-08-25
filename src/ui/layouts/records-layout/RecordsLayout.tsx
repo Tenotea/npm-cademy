@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react";
 import Image from "next/image";
 import React from "react";
 import { IM_SiteLogo } from "~/assets/images";
-import { RecordsLayoutProps } from "./RecordsLayout.types";
+import { type RecordsLayoutProps } from "./RecordsLayout.types";
 
 export default function RecordsLayout(props: RecordsLayoutProps) {
   return (
@@ -12,7 +12,7 @@ export default function RecordsLayout(props: RecordsLayoutProps) {
       <header className="border-b border-app-gray-accent-5">
         <div className="mx-auto flex w-11/12 max-w-screen-2xl items-center gap-1.5">
           <Image src={IM_SiteLogo} alt="npm cademy" />
-          <h2 className="mt-2.5 text-lg font-bold"> / Teachers </h2>
+          <h2 className="mt-2.5 text-lg font-bold"> / {props.title} </h2>
         </div>
       </header>
 
